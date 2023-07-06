@@ -1,4 +1,4 @@
-#  k3d - Tilt (Example FastAPI & Helm) 
+#  k3d - Tilt (Example FastAPI app + Helm) 
 
 Simple example showcasing an option for a local development setup for python apps in kubernetes.
 
