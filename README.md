@@ -7,7 +7,7 @@ You need these tools to set this up and try it for yourself:
 - [k3d](https://k3d.io): installs a k3s cluster in you docker
 - [kubectl](https://kubernetes.io/docs/tasks/tools/): the means of interacting with the kubernetes cluster
 - [helm](https://k3d.io): package manager for kubernetes
-- [tilt](https://tilt.dev): smart rebuilds and live updates making your live easier. Tilt define your dev environment as code. Usable for microservice apps on Kubernetes.
+- [tilt](https://tilt.dev): smart rebuilds and live updates making your live easier. Tilt define your dev environment as code. Very usable for microservice apps on Kubernetes, and better than Skaffold ).
 
 ## Installing the cluster
 Create a local k3d cluster with docker registry using:
