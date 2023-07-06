@@ -19,8 +19,11 @@ make up
 ## Running tilt
 ```
 tilt up
+```
 
-t$ tilt up
+Example Outout: (s) to stream logs
+```
+$ tilt up
 Tilt started on http://localhost:10350/
 v0.33.1, built 2023-06-28
 
