@@ -164,9 +164,10 @@ fastapi-exam… │ INFO:     10.42.1.1:43920 - "GET / HTTP/1.1" 200 OK
 This will build and install everything. It will watch your files for changes and updates the necessary parts where needed.
 
 ### Check app
+```
 $ curl localhost
 {"Hello":"World-2"}
-
+```
 
 ### Clean dev environment
 ```
