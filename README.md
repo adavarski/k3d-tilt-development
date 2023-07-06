@@ -10,7 +10,8 @@ You need these tools to set this up and try it for yourself:
 - [tilt](https://tilt.dev): smart rebuilds and live updates making your live easier
 
 ## Installing the cluster
-Once you installed above and cloned this repository you create a local cluster using:
+Create a local k3d cluster with docker registry using:
+
 ```
 make up
 ```
@@ -161,7 +162,7 @@ $ curl localhost
 
 This will build and install everything. It will watch your files for changes and updates the necessary parts where needed.
 
-Clean 
+### Clean dev environment
 ```
 make down
 ```
