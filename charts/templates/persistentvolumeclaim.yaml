@@ -1,0 +1,14 @@
+{{ if .Values.app.local -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "app.fullname" . }}-local-pvc
+spec:
+  storageClassName: {{ include "app.fullname" . }}-local-sc
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+  volumeName: {{ include "app.fullname" . }}-local-pv
+{{ end -}}

@@ -1,0 +1,25 @@
+{{ if .Values.app.local -}}
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: {{ include "app.fullname" . }}-local-pv
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: {{ include "app.fullname" . }}-local-sc
+  volumeMode: Filesystem
+  persistentVolumeReclaimPolicy: Retain
+  local:
+    path: {{ .Values.app.local }}
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:                                                                                                                                                      
+      - matchExpressions:
+        - key: kubernetes.io/os
+          operator: In
+          values:
+          - linux
+{{ end -}}

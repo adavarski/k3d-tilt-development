@@ -1,0 +1,31 @@
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+metadata:
+  name: infra-dev # name that you want to give to your cluster (will still be prefixed with `k3d-`)
+servers: 1 # same as `--servers 1`
+agents: 2 # same as `--agents 2`
+kubeAPI: # same as `--api-port myhost.my.domain:6445` (where the name would resolve to 127.0.0.1)
+  host: "localhost" # important for the `server` setting in the kubeconfig
+  hostIP: "127.0.0.1" # where the Kubernetes API will be listening on
+  hostPort: "6550" # where the Kubernetes API listening port will be mapped to on your host system
+image: rancher/k3s:v1.23.6-k3s1
+#volumes: # repeatable flags are represented as YAML lists, same as `--volume '/my/host/path:/path/in/node@server[0];agent[*]'`
+#  - volume: /path/to/somewhere:/projects
+#    nodeFilters:
+#      - server:*
+#      - agent:*
+ports:
+  - port: 80:80 # same as `--port '8080:80@loadbalancer'`
+    nodeFilters:
+      - loadbalancer
+registries: # define how registries should be created or used
+  create:
+    name: "registry.localhost"
+    host: "127.0.0.1"
+    hostPort: "15000"
+options:
+  k3d: # k3d runtime settings
+    wait: true # wait for cluster to be usable before returning; same as `--wait` (default: true)
+  kubeconfig:
+    updateDefaultKubeconfig: true # add new cluster to your default Kubeconfig; same as `--kubeconfig-update-default` (default: true)
+    switchCurrentContext: true # also set current-context to the new cluster's context; same as `--kubeconfig-switch-context` (default: true)
